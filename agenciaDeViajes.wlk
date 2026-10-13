@@ -1,7 +1,7 @@
 class Coordinador {
     var property viajesRealizados
     var property estaMotivado
-    var property aniosExperiencia
+    var property añosExperiencia
     var property rol
 
     method cambiarRol(nuevoRol) {
@@ -10,9 +10,13 @@ class Coordinador {
         }
         rol = nuevoRol
     }
+
+     method esAltamenteCalificado() {
+    return viajesRealizados > 20 && self.cumpleCondicion()
+  }
 }
 
-lass Beneficio {
+class Beneficio {
   var property tipo
   var property costo
   var property estaVigente
@@ -31,7 +35,7 @@ class PackViaje {
   method valorFinal() {
     const baseConBeneficios = precioBase + self.costoBeneficiosVigentes()
     const conRecargo = if (self.esInternacional()) baseConBeneficios * 1.2 else baseConBeneficios
-    return if (self.esPremium()) conRecargo * 1.05 else conRecargo
+    return if (self.esPremium()) conRecargo * 1.5 else conRecargo
   }
 
   method esInternacional() = false
